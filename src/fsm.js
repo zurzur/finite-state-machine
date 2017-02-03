@@ -17,7 +17,9 @@ class FSM {
      * Returns active state.
      * @returns {String}
      */
-    getState() {}
+    getState() {
+        return this.activeState;
+    }
 
     /**
      * Goes to specified state.
