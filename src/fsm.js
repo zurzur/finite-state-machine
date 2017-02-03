@@ -109,7 +109,10 @@ class FSM {
     /**
      * Clears transition history
      */
-    clearHistory() {}
+    clearHistory() {
+        this.history.length = 1;
+        this.currentHistoryIndex = 0;
+    }
 }
 
 module.exports = FSM;
