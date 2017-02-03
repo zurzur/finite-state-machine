@@ -48,7 +48,9 @@ class FSM {
     /**
      * Resets FSM state to initial.
      */
-    reset() {}
+    reset() {
+        this.activeState = this.rules.initial;
+    }
 
     /**
      * Returns an array of states for which there are specified event transition rules.
