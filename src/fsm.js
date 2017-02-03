@@ -25,7 +25,13 @@ class FSM {
      * Goes to specified state.
      * @param state
      */
-    changeState(state) {}
+    changeState(state) {
+        if (state in this.rules.states) {
+            this.activeState = state;
+            this.history.push([this.activeState, 's']);
+            this.currentHistoryIndex += 1;
+        } else throw new Error();
+    }
 
     /**
      * Changes state according to event transition rules.
