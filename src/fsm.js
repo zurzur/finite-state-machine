@@ -3,7 +3,15 @@ class FSM {
      * Creates new FSM instance.
      * @param config
      */
-    constructor(config) {}
+    constructor(config) {
+        if (config != null)
+        {
+            this.history = [[config.initial, null]];
+            this.currentHistoryIndex = 0;
+            this.rules = config;
+            this.activeState = config.initial;
+        } else throw new Error();
+    }
 
     /**
      * Returns active state.
