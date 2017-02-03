@@ -58,7 +58,20 @@ class FSM {
      * @param event
      * @returns {Array}
      */
-    getStates(event) {}
+    getStates(event) {
+        var arr = [];
+        if (event==null) {
+            for ( var key in this.rules.states) arr.push(key); 
+        }  else {
+                for (var key in this.rules.states){
+                    for (var key1 in this.rules.states[key].transitions) {
+                        if (event in this.rules.states[key].transitions 
+                            && arr.indexOf(key) == -1) arr.push(key);
+                    }
+                }
+            }
+        return arr;
+    }
 
     /**
      * Goes back to previous state.
